@@ -288,7 +288,10 @@ function detectLocale(): Locale {
     return "en";
   }
 
-  const primaryLanguage = navigator.language?.toLowerCase() ?? "en";
+  const primaryLanguage =
+    navigator.languages?.[0]?.toLowerCase() ??
+    navigator.language?.toLowerCase() ??
+    "en";
 
   if (primaryLanguage.startsWith("es")) {
     return "es";
@@ -739,7 +742,7 @@ function DecisionPanel({ copy }: { copy: Copy }) {
 }
 
 export default function App() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useState<Locale>(detectLocale);
 
   useEffect(() => {
     const nextLocale = detectLocale();
