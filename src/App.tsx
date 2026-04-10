@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -288,12 +288,19 @@ function detectLocale(): Locale {
     return "en";
   }
 
-  const primaryLanguage =
-    navigator.languages?.[0]?.toLowerCase() ??
-    navigator.language?.toLowerCase() ??
-    "en";
+  const languages = [
+    ...(navigator.languages ?? []),
+    navigator.language ?? "",
+  ].map((language) => language.toLowerCase());
 
-  if (primaryLanguage.startsWith("es")) {
+  const hasEnglish = languages.some((language) => language.startsWith("en"));
+  const hasSpanish = languages.some((language) => language.startsWith("es"));
+
+  if (hasEnglish) {
+    return "en";
+  }
+
+  if (hasSpanish) {
     return "es";
   }
 
@@ -742,13 +749,11 @@ function DecisionPanel({ copy }: { copy: Copy }) {
 }
 
 export default function App() {
-  const [locale, setLocale] = useState<Locale>(detectLocale);
+  const locale = detectLocale();
 
   useEffect(() => {
-    const nextLocale = detectLocale();
-    setLocale(nextLocale);
-    document.documentElement.lang = nextLocale;
-  }, []);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const copy = translations[locale];
 
