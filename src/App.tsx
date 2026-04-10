@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -12,13 +13,10 @@ import {
 
 const palette = {
   canvas: "#f3efe8",
-  surface: "#f7f3ed",
   paper: "#fcfaf7",
-  muted: "#ece7df",
   ink: "#121212",
   copy: "#3a3834",
   soft: "#6d6962",
-  accent: "#a48f72",
   accentDeep: "#7f6f57",
   dark: "#171614",
 };
@@ -28,56 +26,264 @@ const reveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const shortlist = [
-  {
-    name: "5242 Tower 1",
-    line: "Cleanest overall fit for commute, quiet, and finish.",
-    verdict: "Best balance",
+const translations = {
+  en: {
+    nav: ["Approach", "Product", "Flow", "Shortlist"],
+    requestAccess: "Request access",
+    heroEyebrow: "Editorial decision engine for housing",
+    heroTitle: "Choose where you live with structure, not noise.",
+    heroBody:
+      "Perch turns housing search into a calm editorial system: place-aware, profile-aware, and built to move people toward a shortlist they can trust.",
+    seeProduct: "See the product",
+    viewFlow: "View the flow",
+    heroBadge: "P E R C H edit",
+    heroRanked: "Ranked for your routine",
+    signals: [
+      ["Commute", "14 min"],
+      ["Budget", "Within range"],
+      ["Noise", "Quiet street"],
+    ],
+    tradeoffLabel: "Tradeoff note",
+    tradeoffText:
+      "Modern Marina 2BR. Strong daily fit, slightly tighter than the price suggests.",
+    shortlistConfidence: "Shortlist confidence",
+    shortlistTitle: "Three viable options. One clear leader.",
+    shortlistBadge: "Best balance",
+    compare: "Compare",
+    whatPerchDoes: "What Perch actually does",
+    approachTitle:
+      "The product gives housing search shape, then makes the tradeoffs readable.",
+    productTruth: "Product truth",
+    inPractice: "In practice",
+    storyBlocks: [
+      {
+        title: "Explore with structure",
+        body: "Perch begins with area logic, profile signals, and a cleaner sequence through the inventory. The experience feels expansive without becoming noisy.",
+        detail:
+          "Users stay oriented by neighborhood, commute, and daily-life context before they commit attention to listing polish.",
+        metric: "Area-first discovery",
+      },
+      {
+        title: "Understand tradeoffs instantly",
+        body: "Each property arrives with one strong image, quick-scan signals, and an editorial line on the catch. The point is not more data. It is faster clarity.",
+        detail:
+          "Perch makes the compromise legible right away: slightly tight for the price, calm but farther out, polished but less character.",
+        metric: "Quick-scan signals",
+      },
+      {
+        title: "Build a shortlist you can trust",
+        body: "Saving a home becomes a decision surface, not a pile. Perch narrows to a few serious options and explains what separates them with confidence.",
+        detail:
+          "The shortlist compares certainty, value, feel, and friction so users can stop browsing and move forward without second-guessing.",
+        metric: "Decision-ready shortlist",
+      },
+    ],
+    walkthroughEyebrow: "Product walkthrough",
+    walkthroughTitle: "A decision journey designed to feel legible.",
+    walkthroughBody:
+      "Perch moves from place to profile to validation, keeping the user close to a small set of strong options the whole way through.",
+    stepLabel: "Step",
+    editorialView: "Editorial view",
+    productFlow: "Product flow",
+    flow: [
+      {
+        step: "01",
+        title: "Map awareness",
+        body: "Start with place before polish. Area context frames every decision that follows.",
+      },
+      {
+        step: "02",
+        title: "Progressive onboarding",
+        body: "Preferences emerge through use, so Perch learns without turning the first session into a form.",
+      },
+      {
+        step: "03",
+        title: "Magazine discovery",
+        body: "Each home arrives with image, signals, and one clear line on the tradeoff.",
+      },
+      {
+        step: "04",
+        title: "Property validation",
+        body: "The product surfaces what works, what annoys, and who the home is really for.",
+      },
+      {
+        step: "05",
+        title: "Shortlist decision",
+        body: "Only a few viable options remain, with enough structure to stop confidently.",
+      },
+    ],
+    decisionEyebrow: "Decision support",
+    decisionTitle: "The shortlist is where conviction should arrive.",
+    decisionBody:
+      "Perch reduces the final decision to a few viable homes, then clarifies what separates them: certainty, value, image, comfort, and daily fit.",
+    stats: [
+      ["Commute", "14 min"],
+      ["Quiet", "High"],
+      ["Confidence", "Strong"],
+    ],
+    currentLeader: "Current leader",
+    leaderBody: "The cleanest balance across commute, finish, and overall calm.",
+    closingTitle: "Built for people who need to choose well, not keep browsing.",
+    closingBody:
+      "Early access for renters, operators, and partners shaping a calmer path from search to shortlist.",
+    joinEarlyAccess: "Join early access",
+    readApproach: "Read the approach",
+    shortlist: [
+      {
+        name: "5242 Tower 1",
+        line: "Cleanest overall fit for commute, quiet, and finish.",
+        verdict: "Best balance",
+      },
+      {
+        name: "Marina Gate View",
+        line: "More certainty, less character, strongest fallback.",
+        verdict: "Safest option",
+      },
+      {
+        name: "Parkside Residence",
+        line: "More room for the money, but more daily friction.",
+        verdict: "Value play",
+      },
+    ],
   },
-  {
-    name: "Marina Gate View",
-    line: "More certainty, less character, strongest fallback.",
-    verdict: "Safest option",
+  es: {
+    nav: ["Enfoque", "Producto", "Flujo", "Shortlist"],
+    requestAccess: "Solicitar acceso",
+    heroEyebrow: "Motor editorial de decisión para vivienda",
+    heroTitle: "Elige dónde vivir con estructura, no con ruido.",
+    heroBody:
+      "Perch convierte la búsqueda de vivienda en un sistema editorial sereno: consciente del lugar, consciente del perfil y diseñado para llevar a las personas a una shortlist en la que puedan confiar.",
+    seeProduct: "Ver producto",
+    viewFlow: "Ver flujo",
+    heroBadge: "P E R C H edit",
+    heroRanked: "Clasificado para tu rutina",
+    signals: [
+      ["Traslado", "14 min"],
+      ["Presupuesto", "Dentro del rango"],
+      ["Ruido", "Calle silenciosa"],
+    ],
+    tradeoffLabel: "Nota de equilibrio",
+    tradeoffText:
+      "Marina moderna de 2 habitaciones. Muy buena para el día a día, aunque algo ajustada para el precio.",
+    shortlistConfidence: "Confianza de shortlist",
+    shortlistTitle: "Tres opciones viables. Una líder clara.",
+    shortlistBadge: "Mejor balance",
+    compare: "Comparar",
+    whatPerchDoes: "Lo que Perch realmente hace",
+    approachTitle:
+      "El producto le da forma a la búsqueda de vivienda y vuelve legibles los tradeoffs.",
+    productTruth: "Verdad del producto",
+    inPractice: "En la práctica",
+    storyBlocks: [
+      {
+        title: "Explora con estructura",
+        body: "Perch empieza con lógica de zona, señales de perfil y una secuencia más clara dentro del inventario. La experiencia se siente amplia sin volverse ruidosa.",
+        detail:
+          "Las personas se orientan por barrio, traslado y contexto de vida diaria antes de dedicar atención al brillo de cada anuncio.",
+        metric: "Descubrimiento guiado por zona",
+      },
+      {
+        title: "Entiende los tradeoffs al instante",
+        body: "Cada propiedad llega con una imagen fuerte, señales de lectura rápida y una línea editorial sobre el costo real de elegirla. No se trata de más datos. Se trata de claridad más rápida.",
+        detail:
+          "Perch vuelve legible el compromiso desde el principio: algo justa para el precio, más tranquila pero más lejos, pulida pero con menos carácter.",
+        metric: "Señales de lectura rápida",
+      },
+      {
+        title: "Construye una shortlist en la que puedas confiar",
+        body: "Guardar una vivienda deja de ser una pila y se convierte en una superficie de decisión. Perch reduce a unas pocas opciones serias y explica qué las separa.",
+        detail:
+          "La shortlist compara certeza, valor, sensación y fricción para que la persona deje de navegar y avance sin dudar.",
+        metric: "Shortlist lista para decidir",
+      },
+    ],
+    walkthroughEyebrow: "Recorrido del producto",
+    walkthroughTitle: "Un recorrido de decisión pensado para sentirse legible.",
+    walkthroughBody:
+      "Perch va del lugar al perfil y luego a la validación, manteniendo al usuario cerca de un conjunto pequeño de opciones fuertes durante todo el recorrido.",
+    stepLabel: "Paso",
+    editorialView: "Vista editorial",
+    productFlow: "Flujo de producto",
+    flow: [
+      {
+        step: "01",
+        title: "Conciencia del mapa",
+        body: "Empieza por el lugar antes que por el brillo. El contexto del área enmarca cada decisión que sigue.",
+      },
+      {
+        step: "02",
+        title: "Onboarding progresivo",
+        body: "Las preferencias emergen con el uso, así que Perch aprende sin convertir la primera sesión en un formulario.",
+      },
+      {
+        step: "03",
+        title: "Descubrimiento tipo revista",
+        body: "Cada vivienda llega con imagen, señales y una línea clara sobre el tradeoff.",
+      },
+      {
+        step: "04",
+        title: "Validación de propiedad",
+        body: "El producto muestra qué funciona, qué molesta y para quién es realmente ese hogar.",
+      },
+      {
+        step: "05",
+        title: "Decisión de shortlist",
+        body: "Solo quedan unas pocas opciones viables, con suficiente estructura para decidir con confianza.",
+      },
+    ],
+    decisionEyebrow: "Soporte de decisión",
+    decisionTitle: "La shortlist es donde debería llegar la convicción.",
+    decisionBody:
+      "Perch reduce la decisión final a unas pocas viviendas viables y luego aclara qué las separa: certeza, valor, imagen, comodidad y encaje diario.",
+    stats: [
+      ["Traslado", "14 min"],
+      ["Silencio", "Alto"],
+      ["Confianza", "Fuerte"],
+    ],
+    currentLeader: "Opción líder",
+    leaderBody: "El balance más limpio entre traslado, acabados y calma general.",
+    closingTitle: "Hecho para personas que necesitan elegir bien, no seguir navegando.",
+    closingBody:
+      "Acceso anticipado para arrendatarios, operadores y partners que buscan un camino más sereno desde la búsqueda hasta la shortlist.",
+    joinEarlyAccess: "Unirse al acceso anticipado",
+    readApproach: "Leer el enfoque",
+    shortlist: [
+      {
+        name: "5242 Tower 1",
+        line: "El encaje más limpio entre traslado, calma y acabados.",
+        verdict: "Mejor balance",
+      },
+      {
+        name: "Marina Gate View",
+        line: "Más certeza, menos carácter, la mejor alternativa segura.",
+        verdict: "Opción más segura",
+      },
+      {
+        name: "Parkside Residence",
+        line: "Más espacio por el dinero, pero más fricción diaria.",
+        verdict: "Mejor valor",
+      },
+    ],
   },
-  {
-    name: "Parkside Residence",
-    line: "More room for the money, but more daily friction.",
-    verdict: "Value play",
-  },
+} as const;
+
+type Locale = keyof typeof translations;
+type Copy = (typeof translations)[Locale];
+
+const flowIcons = [MapPinned, Navigation, MoonStar, Check, Star];
+const storyImages = [
+  "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80",
 ];
 
-const flow = [
-  {
-    step: "01",
-    title: "Map awareness",
-    body: "Start with place before polish. Area context frames every decision that follows.",
-    icon: MapPinned,
-  },
-  {
-    step: "02",
-    title: "Progressive onboarding",
-    body: "Preferences emerge through use, so Perch learns without turning the first session into a form.",
-    icon: Navigation,
-  },
-  {
-    step: "03",
-    title: "Magazine discovery",
-    body: "Each home arrives with image, signals, and one clear line on the tradeoff.",
-    icon: MoonStar,
-  },
-  {
-    step: "04",
-    title: "Property validation",
-    body: "The product surfaces what works, what annoys, and who the home is really for.",
-    icon: Check,
-  },
-  {
-    step: "05",
-    title: "Shortlist decision",
-    body: "Only a few viable options remain, with enough structure to stop confidently.",
-    icon: Star,
-  },
-];
+function detectLocale(): Locale {
+  if (typeof navigator === "undefined") {
+    return "en";
+  }
+
+  return navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+}
 
 function Eyebrow({ children }: { children: string }) {
   return (
@@ -90,13 +296,7 @@ function Eyebrow({ children }: { children: string }) {
   );
 }
 
-function Signal({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function Signal({ label, value }: { label: string; value: string }) {
   return (
     <div
       className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-[12px] font-medium"
@@ -112,7 +312,7 @@ function Signal({
   );
 }
 
-function HeroVisual() {
+function HeroVisual({ copy }: { copy: Copy }) {
   return (
     <div className="relative min-h-[640px] lg:min-h-[720px]">
       <div
@@ -129,29 +329,50 @@ function HeroVisual() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
 
-        <div className="absolute left-6 right-6 top-6 flex items-start justify-between">
+        <div className="absolute left-6 right-6 top-6 flex items-start justify-between gap-4">
           <div
             className="rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em]"
             style={{ backgroundColor: "rgba(252,250,247,0.92)", color: palette.ink }}
           >
-            P E R C H edit
+            {copy.heroBadge}
           </div>
           <div
             className="rounded-full px-3 py-2 text-[11px] font-medium"
             style={{ backgroundColor: "rgba(252,250,247,0.88)", color: palette.copy }}
           >
-            Ranked for your routine
+            {copy.heroRanked}
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+        <div className="absolute bottom-8 left-0 right-0 p-6 sm:p-8">
           <div className="mb-3 flex flex-wrap gap-2">
-            <Signal label="Commute" value="14 min" />
-            <Signal label="Budget" value="Within range" />
-            <Signal label="Noise" value="Quiet street" />
+            {copy.signals.map(([label, value]) => (
+              <Signal key={label} label={label} value={value} />
+            ))}
           </div>
-          <div className="max-w-[620px] text-[32px] font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[42px]">
-            Modern Marina 2BR. Strong daily fit, slightly tighter than the price suggests.
+        </div>
+
+        <div className="absolute right-6 top-20 max-w-[320px] sm:right-8 sm:top-24">
+          <div
+            className="rounded-[24px] px-5 py-4"
+            style={{
+              backgroundColor: "rgba(252,250,247,0.9)",
+              backdropFilter: "blur(16px)",
+              boxShadow: "0 18px 50px rgba(18,18,18,0.08)",
+            }}
+          >
+            <div
+              className="text-[11px] font-semibold uppercase tracking-[0.18em]"
+              style={{ color: palette.soft }}
+            >
+              {copy.tradeoffLabel}
+            </div>
+            <p
+              className="mt-2 text-[15px] leading-[1.55]"
+              style={{ color: palette.ink }}
+            >
+              {copy.tradeoffText}
+            </p>
           </div>
         </div>
       </div>
@@ -164,31 +385,31 @@ function HeroVisual() {
           boxShadow: "0 26px 80px rgba(18,18,18,0.1)",
         }}
       >
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex items-center justify-between gap-4">
           <div>
             <div
               className="text-[11px] font-semibold uppercase tracking-[0.22em]"
               style={{ color: palette.soft }}
             >
-              Shortlist confidence
+              {copy.shortlistConfidence}
             </div>
             <div
               className="mt-2 text-[22px] font-semibold tracking-[-0.03em]"
               style={{ color: palette.ink }}
             >
-              Three viable options. One clear leader.
+              {copy.shortlistTitle}
             </div>
           </div>
           <div
             className="rounded-full px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em]"
             style={{ backgroundColor: palette.ink, color: palette.paper }}
           >
-            Best balance
+            {copy.shortlistBadge}
           </div>
         </div>
 
         <div className="space-y-3">
-          {shortlist.map((item, index) => (
+          {copy.shortlist.map((item, index) => (
             <div
               key={item.name}
               className="grid gap-2 rounded-[22px] px-4 py-4 sm:grid-cols-[1.2fr_1fr_auto] sm:items-center"
@@ -221,7 +442,7 @@ function HeroVisual() {
                   color: index === 0 ? palette.paper : palette.ink,
                 }}
               >
-                Compare
+                {copy.compare}
               </button>
             </div>
           ))}
@@ -238,6 +459,7 @@ function StoryBlock({
   image,
   reverse,
   metric,
+  copy,
 }: {
   title: string;
   body: string;
@@ -245,6 +467,7 @@ function StoryBlock({
   image: string;
   reverse?: boolean;
   metric: string;
+  copy: Copy;
 }) {
   return (
     <div
@@ -277,7 +500,7 @@ function StoryBlock({
             className="mb-5 text-[11px] font-semibold uppercase tracking-[0.24em]"
             style={{ color: palette.soft }}
           >
-            Product truth
+            {copy.productTruth}
           </div>
           <div
             className="max-w-[520px] text-[34px] font-semibold leading-[1.02] tracking-[-0.04em]"
@@ -301,7 +524,7 @@ function StoryBlock({
             className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em]"
             style={{ color: palette.soft }}
           >
-            In practice
+            {copy.inPractice}
           </div>
           <p className="text-[15px] leading-[1.65]" style={{ color: palette.ink }}>
             {detail}
@@ -312,31 +535,31 @@ function StoryBlock({
   );
 }
 
-function WalkthroughRail() {
+function WalkthroughRail({ copy }: { copy: Copy }) {
   return (
     <div className="grid gap-4 lg:grid-cols-[0.72fr_1.28fr]">
       <div
         className="rounded-[32px] p-7 sm:p-8"
         style={{ backgroundColor: "rgba(252,250,247,0.72)" }}
       >
-        <Eyebrow>Product walkthrough</Eyebrow>
+        <Eyebrow>{copy.walkthroughEyebrow}</Eyebrow>
         <div
           className="max-w-[420px] text-[36px] font-semibold leading-[1.02] tracking-[-0.04em]"
           style={{ color: palette.ink }}
         >
-          A decision journey designed to feel legible.
+          {copy.walkthroughTitle}
         </div>
         <p
           className="mt-5 max-w-[420px] text-[16px] leading-[1.7]"
           style={{ color: palette.copy }}
         >
-          Perch moves from place to profile to validation, keeping the user close to a small set of strong options the whole way through.
+          {copy.walkthroughBody}
         </p>
       </div>
 
       <div className="grid gap-4">
-        {flow.map((item, index) => {
-          const Icon = item.icon;
+        {copy.flow.map((item, index) => {
+          const Icon = flowIcons[index];
           return (
             <div
               key={item.step}
@@ -363,7 +586,7 @@ function WalkthroughRail() {
                   className="text-[11px] font-semibold uppercase tracking-[0.18em]"
                   style={{ color: index === 2 ? "rgba(252,250,247,0.6)" : palette.soft }}
                 >
-                  Step {item.step}
+                  {copy.stepLabel} {item.step}
                 </div>
                 <div className="mt-2 text-[24px] font-semibold tracking-[-0.03em]">
                   {item.title}
@@ -382,7 +605,7 @@ function WalkthroughRail() {
                   color: index === 2 ? palette.paper : palette.copy,
                 }}
               >
-                {index === 2 ? "Editorial view" : "Product flow"}
+                {index === 2 ? copy.editorialView : copy.productFlow}
               </div>
             </div>
           );
@@ -392,29 +615,25 @@ function WalkthroughRail() {
   );
 }
 
-function DecisionPanel() {
+function DecisionPanel({ copy }: { copy: Copy }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
       <div>
-        <Eyebrow>Decision support</Eyebrow>
+        <Eyebrow>{copy.decisionEyebrow}</Eyebrow>
         <div
           className="max-w-[520px] text-[38px] font-semibold leading-[1.02] tracking-[-0.04em]"
           style={{ color: palette.ink }}
         >
-          The shortlist is where conviction should arrive.
+          {copy.decisionTitle}
         </div>
         <p
           className="mt-5 max-w-[520px] text-[17px] leading-[1.72]"
           style={{ color: palette.copy }}
         >
-          Perch reduces the final decision to a few viable homes, then clarifies what separates them: certainty, value, image, comfort, and daily fit.
+          {copy.decisionBody}
         </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {[
-            ["Commute", "14 min"],
-            ["Quiet", "High"],
-            ["Confidence", "Strong"],
-          ].map(([label, value]) => (
+          {copy.stats.map(([label, value]) => (
             <div
               key={label}
               className="rounded-[24px] px-4 py-5"
@@ -459,22 +678,22 @@ function DecisionPanel() {
                 className="text-[11px] font-semibold uppercase tracking-[0.18em]"
                 style={{ color: palette.soft }}
               >
-                Current leader
+                {copy.currentLeader}
               </div>
               <div
                 className="mt-2 text-[26px] font-semibold tracking-[-0.04em]"
                 style={{ color: palette.ink }}
               >
-                5242 Tower 1
+                {copy.shortlist[0].name}
               </div>
               <p className="mt-3 text-[15px] leading-[1.65]" style={{ color: palette.copy }}>
-                The cleanest balance across commute, finish, and overall calm.
+                {copy.leaderBody}
               </p>
             </div>
           </div>
 
           <div className="space-y-3">
-            {shortlist.map((item, index) => (
+            {copy.shortlist.map((item, index) => (
               <div
                 key={item.name}
                 className="rounded-[24px] p-4"
@@ -508,6 +727,16 @@ function DecisionPanel() {
 }
 
 export default function App() {
+  const [locale, setLocale] = useState<Locale>("en");
+
+  useEffect(() => {
+    const nextLocale = detectLocale();
+    setLocale(nextLocale);
+    document.documentElement.lang = nextLocale;
+  }, []);
+
+  const copy = translations[locale];
+
   return (
     <div
       className="w-full"
@@ -525,16 +754,10 @@ export default function App() {
             P E R C H
           </div>
           <nav className="hidden items-center gap-8 md:flex">
-            {["Approach", "Product", "Flow", "Shortlist"].map((item) => (
+            {copy.nav.map((item, index) => (
               <a
                 key={item}
-                href={
-                  item === "Flow"
-                    ? "#flow"
-                    : item === "Shortlist"
-                      ? "#shortlist"
-                      : `#${item.toLowerCase()}`
-                }
+                href={index === 0 ? "#approach" : index === 1 ? "#product" : index === 2 ? "#flow" : "#shortlist"}
                 className="text-[14px]"
                 style={{ color: palette.copy }}
               >
@@ -547,7 +770,7 @@ export default function App() {
             className="inline-flex h-11 items-center rounded-full px-5 text-[14px] font-medium"
             style={{ backgroundColor: palette.ink, color: palette.paper }}
           >
-            Request access
+            {copy.requestAccess}
           </a>
         </div>
       </header>
@@ -562,18 +785,18 @@ export default function App() {
               transition={{ duration: 0.5 }}
               className="max-w-[520px] pb-4"
             >
-              <Eyebrow>Editorial decision engine for housing</Eyebrow>
+              <Eyebrow>{copy.heroEyebrow}</Eyebrow>
               <h1
                 className="text-[54px] font-semibold leading-[0.94] tracking-[-0.055em] sm:text-[68px] lg:text-[82px]"
                 style={{ color: palette.ink }}
               >
-                Choose where you live with structure, not noise.
+                {copy.heroTitle}
               </h1>
               <p
                 className="mt-6 max-w-[460px] text-[18px] leading-[1.68]"
                 style={{ color: palette.copy }}
               >
-                Perch turns housing search into a calm editorial system: place-aware, profile-aware, and built to move people toward a shortlist they can trust.
+                {copy.heroBody}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -581,14 +804,14 @@ export default function App() {
                   className="inline-flex h-12 items-center rounded-full px-5 text-[14px] font-medium"
                   style={{ backgroundColor: palette.ink, color: palette.paper }}
                 >
-                  See the product
+                  {copy.seeProduct}
                 </a>
                 <a
                   href="#flow"
                   className="inline-flex h-12 items-center gap-2 rounded-full px-5 text-[14px] font-medium"
                   style={{ backgroundColor: "rgba(18,18,18,0.06)", color: palette.ink }}
                 >
-                  View the flow <ArrowRight className="h-4 w-4" />
+                  {copy.viewFlow} <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </motion.div>
@@ -599,7 +822,7 @@ export default function App() {
               animate="visible"
               transition={{ duration: 0.55, delay: 0.08 }}
             >
-              <HeroVisual />
+              <HeroVisual copy={copy} />
             </motion.div>
           </div>
         </section>
@@ -607,38 +830,28 @@ export default function App() {
         <section id="approach" className="w-full px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-[1500px]">
             <div className="mb-12 max-w-[760px]">
-              <Eyebrow>What Perch actually does</Eyebrow>
+              <Eyebrow>{copy.whatPerchDoes}</Eyebrow>
               <div
                 className="text-[40px] font-semibold leading-[1.02] tracking-[-0.045em] sm:text-[52px]"
                 style={{ color: palette.ink }}
               >
-                The product gives housing search shape, then makes the tradeoffs readable.
+                {copy.approachTitle}
               </div>
             </div>
 
             <div className="space-y-6">
-              <StoryBlock
-                title="Explore with structure"
-                body="Perch begins with area logic, profile signals, and a cleaner sequence through the inventory. The experience feels expansive without becoming noisy."
-                detail="Users stay oriented by neighborhood, commute, and daily-life context before they commit attention to listing polish."
-                image="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"
-                metric="Area-first discovery"
-              />
-              <StoryBlock
-                title="Understand tradeoffs instantly"
-                body="Each property arrives with one strong image, quick-scan signals, and an editorial line on the catch. The point is not more data. It is faster clarity."
-                detail="Perch makes the compromise legible right away: slightly tight for the price, calm but farther out, polished but less character."
-                image="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80"
-                reverse
-                metric="Quick-scan signals"
-              />
-              <StoryBlock
-                title="Build a shortlist you can trust"
-                body="Saving a home becomes a decision surface, not a pile. Perch narrows to a few serious options and explains what separates them with confidence."
-                detail="The shortlist compares certainty, value, feel, and friction so users can stop browsing and move forward without second-guessing."
-                image="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80"
-                metric="Decision-ready shortlist"
-              />
+              {copy.storyBlocks.map((block, index) => (
+                <StoryBlock
+                  key={block.title}
+                  title={block.title}
+                  body={block.body}
+                  detail={block.detail}
+                  metric={block.metric}
+                  image={storyImages[index]}
+                  reverse={index === 1}
+                  copy={copy}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -649,13 +862,13 @@ export default function App() {
           style={{ backgroundColor: "rgba(252,250,247,0.5)" }}
         >
           <div id="flow" className="mx-auto max-w-[1500px]">
-            <WalkthroughRail />
+            <WalkthroughRail copy={copy} />
           </div>
         </section>
 
         <section id="shortlist" className="w-full px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-[1500px]">
-            <DecisionPanel />
+            <DecisionPanel copy={copy} />
           </div>
         </section>
 
@@ -679,10 +892,10 @@ export default function App() {
                   P E R C H
                 </div>
                 <div className="max-w-[760px] text-[38px] font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-[52px]">
-                  Built for people who need to choose well, not keep browsing.
+                  {copy.closingTitle}
                 </div>
                 <p className="mt-5 max-w-[620px] text-[17px] leading-[1.72] text-white/72">
-                  Early access for renters, operators, and partners shaping a calmer path from search to shortlist.
+                  {copy.closingBody}
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -691,14 +904,14 @@ export default function App() {
                   className="inline-flex h-12 items-center rounded-full px-5 text-[14px] font-medium"
                   style={{ backgroundColor: palette.paper, color: palette.ink }}
                 >
-                  Join early access
+                  {copy.joinEarlyAccess}
                 </a>
                 <a
                   href="#approach"
                   className="inline-flex h-12 items-center gap-2 rounded-full px-5 text-[14px] font-medium text-white"
                   style={{ backgroundColor: "rgba(252,250,247,0.1)" }}
                 >
-                  Read the approach <MoveRight className="h-4 w-4" />
+                  {copy.readApproach} <MoveRight className="h-4 w-4" />
                 </a>
               </div>
             </motion.div>
