@@ -1,0 +1,37 @@
+# Perch
+
+> Perch is an editorial decision engine for housing. It helps people explore with structure, understand tradeoffs instantly, and build a shortlist they can trust.
+
+Perch is not a generic SaaS dashboard or a property marketplace. It is a calm, product-led housing experience focused on clarity, comparison, and decision support.
+
+## Canonical site
+
+- [Perch homepage](https://perch.so/): Main marketing website and canonical public entry point.
+
+## Key positioning
+
+- Editorial decision engine for housing
+- Explore with structure
+- Understand tradeoffs instantly
+- Build a shortlist you can trust
+- Calm, premium, product-led housing search
+
+## Audience
+
+- Renters choosing between a small number of viable homes
+- Operators and partners building better housing search experiences
+- Teams interested in decision support rather than marketplace-style browsing
+
+## Preferred summary
+
+Perch helps people choose where to live with more structure and less noise. It combines place awareness, progressive onboarding, editorial property discovery, validation, and shortlist comparison into a calmer housing search experience.
+
+## Language support
+
+- English
+- Spanish
+
+## Structured content
+
+- [Expanded LLM summary](https://perch.so/llms-full.txt): Longer version with product framing, messaging, and page structure.
+

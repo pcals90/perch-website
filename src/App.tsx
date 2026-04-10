@@ -30,13 +30,13 @@ const translations = {
   en: {
     nav: ["Approach", "Product", "Flow", "Shortlist"],
     requestAccess: "Request access",
-    metaTitle: "Perch | Editorial Decision Engine for Housing",
+    metaTitle: "Perch | A Calmer Way to Find the Right Home",
     metaDescription:
-      "Perch is an editorial decision engine for housing that helps people explore with structure, understand tradeoffs instantly, and build a shortlist they can trust.",
-    heroEyebrow: "Editorial decision engine for housing",
-    heroTitle: "Choose where you live with structure, not noise.",
+      "Perch helps people search for a home with more clarity, better context, and a shortlist they can trust.",
+    heroEyebrow: "A more considered way to search for a home",
+    heroTitle: "Find a home with more clarity and less noise.",
     heroBody:
-      "Perch turns housing search into a calm editorial system: place-aware, profile-aware, and built to move people toward a shortlist they can trust.",
+      "Perch brings together place, preferences, and a clearer sense of fit so people can narrow their options with confidence.",
     seeProduct: "See the product",
     viewFlow: "View the flow",
     heroBadge: "P E R C H edit",
@@ -46,53 +46,53 @@ const translations = {
       ["Budget", "Within range"],
       ["Noise", "Quiet street"],
     ],
-    tradeoffLabel: "Tradeoff note",
+    tradeoffLabel: "What to know",
     tradeoffText:
-      "Modern Marina 2BR. Strong daily fit, slightly tighter than the price suggests.",
-    shortlistConfidence: "Shortlist confidence",
+      "A polished Marina 2BR with a strong day-to-day fit, though a touch tighter than the price suggests.",
+    shortlistConfidence: "Shortlist",
     shortlistTitle: "Three viable options. One clear leader.",
     shortlistBadge: "Best balance",
     compare: "Compare",
-    whatPerchDoes: "What Perch actually does",
+    whatPerchDoes: "How Perch helps",
     approachTitle:
-      "The product gives housing search shape, then makes the tradeoffs readable.",
-    productTruth: "Product truth",
-    inPractice: "In practice",
+      "Perch brings more calm, context, and confidence to the way people choose where to live.",
+    productTruth: "How it works",
+    inPractice: "What that means",
     storyBlocks: [
       {
         title: "Explore with structure",
-        body: "Perch begins with area logic, profile signals, and a cleaner sequence through the inventory. The experience feels expansive without becoming noisy.",
+        body: "Perch starts with area context, personal fit, and a cleaner path through the inventory so the search feels open, but never overwhelming.",
         detail:
-          "Users stay oriented by neighborhood, commute, and daily-life context before they commit attention to listing polish.",
-        metric: "Area-first discovery",
+          "People stay grounded in neighborhood, commute, and daily routine before they get distracted by surface-level polish.",
+        metric: "Area-led search",
       },
       {
-        title: "Understand tradeoffs instantly",
-        body: "Each property arrives with one strong image, quick-scan signals, and an editorial line on the catch. The point is not more data. It is faster clarity.",
+        title: "See the real fit quickly",
+        body: "Each property comes with a strong image, quick signals, and a simple line that helps explain where it shines and where it asks for compromise.",
         detail:
-          "Perch makes the compromise legible right away: slightly tight for the price, calm but farther out, polished but less character.",
-        metric: "Quick-scan signals",
+          "Instead of making people interpret endless details, Perch surfaces the feel of the choice right away: quieter but farther out, polished but less character, spacious but less central.",
+        metric: "Quick-read signals",
       },
       {
         title: "Build a shortlist you can trust",
-        body: "Saving a home becomes a decision surface, not a pile. Perch narrows to a few serious options and explains what separates them with confidence.",
+        body: "Saved homes become a working shortlist rather than a pile of tabs. Perch helps narrow the field and makes the differences between strong options easier to understand.",
         detail:
-          "The shortlist compares certainty, value, feel, and friction so users can stop browsing and move forward without second-guessing.",
-        metric: "Decision-ready shortlist",
+          "By comparing value, comfort, location, and daily fit, the shortlist helps people move forward without second-guessing every option.",
+        metric: "A shortlist with clarity",
       },
     ],
-    walkthroughEyebrow: "Product walkthrough",
-    walkthroughTitle: "A decision journey designed to feel legible.",
+    walkthroughEyebrow: "The Perch experience",
+    walkthroughTitle: "A search experience that feels calm from the very beginning.",
     walkthroughBody:
-      "Perch moves from place to profile to validation, keeping the user close to a small set of strong options the whole way through.",
+      "Perch moves from place to preferences to validation, keeping people close to a small set of promising homes all the way through.",
     stepLabel: "Step",
-    editorialView: "Editorial view",
-    productFlow: "Product flow",
+    editorialView: "Featured view",
+    productFlow: "Perch flow",
     flow: [
       {
         step: "01",
         title: "Map awareness",
-        body: "Start with place before polish. Area context frames every decision that follows.",
+        body: "Start with place before polish. The surrounding area shapes every choice that follows.",
       },
       {
         step: "02",
@@ -102,7 +102,7 @@ const translations = {
       {
         step: "03",
         title: "Magazine discovery",
-        body: "Each home arrives with image, signals, and one clear line on the tradeoff.",
+        body: "Each home arrives with imagery, signals, and a clear sense of the fit.",
       },
       {
         step: "04",
@@ -115,36 +115,36 @@ const translations = {
         body: "Only a few viable options remain, with enough structure to stop confidently.",
       },
     ],
-    decisionEyebrow: "Decision support",
-    decisionTitle: "The shortlist is where conviction should arrive.",
+    decisionEyebrow: "Compare with confidence",
+    decisionTitle: "The shortlist is where people should start feeling sure.",
     decisionBody:
-      "Perch reduces the final decision to a few viable homes, then clarifies what separates them: certainty, value, image, comfort, and daily fit.",
+      "Perch narrows the search to a few viable homes, then helps clarify what truly separates them: comfort, value, location, and day-to-day fit.",
     stats: [
       ["Commute", "14 min"],
       ["Quiet", "High"],
       ["Confidence", "Strong"],
     ],
     currentLeader: "Current leader",
-    leaderBody: "The cleanest balance across commute, finish, and overall calm.",
-    closingTitle: "Built for people who need to choose well, not keep browsing.",
+    leaderBody: "The most balanced option across commute, finish, and overall calm.",
+    closingTitle: "For people who want to feel good about where they land.",
     closingBody:
-      "Early access for renters, operators, and partners shaping a calmer path from search to shortlist.",
+      "Early access for renters, operators, and partners who want a more thoughtful path from search to shortlist.",
     joinEarlyAccess: "Join early access",
     readApproach: "Read the approach",
     shortlist: [
       {
         name: "5242 Tower 1",
-        line: "Cleanest overall fit for commute, quiet, and finish.",
+        line: "The strongest overall fit for commute, calm, and finish.",
         verdict: "Best balance",
       },
       {
         name: "Marina Gate View",
-        line: "More certainty, less character, strongest fallback.",
+        line: "A steadier option with less character, but more certainty.",
         verdict: "Safest option",
       },
       {
         name: "Parkside Residence",
-        line: "More room for the money, but more daily friction.",
+        line: "More space for the money, with a little more daily friction.",
         verdict: "Value play",
       },
     ],
@@ -152,13 +152,13 @@ const translations = {
   es: {
     nav: ["Enfoque", "Producto", "Flujo", "Shortlist"],
     requestAccess: "Solicitar acceso",
-    metaTitle: "Perch | Motor editorial de decisión para vivienda",
+    metaTitle: "Perch | Una forma más serena de encontrar hogar",
     metaDescription:
-      "Perch es un motor editorial de decisión para vivienda que ayuda a explorar con estructura, entender los tradeoffs al instante y construir una shortlist confiable.",
-    heroEyebrow: "Motor editorial de decisión para vivienda",
-    heroTitle: "Elige dónde vivir con estructura, no con ruido.",
+      "Perch ayuda a buscar hogar con más claridad, mejor contexto y una shortlist en la que se puede confiar.",
+    heroEyebrow: "Una forma más serena de buscar hogar",
+    heroTitle: "Encuentra hogar con más claridad y menos ruido.",
     heroBody:
-      "Perch convierte la búsqueda de vivienda en un sistema editorial sereno: consciente del lugar, consciente del perfil y diseñado para llevar a las personas a una shortlist en la que puedan confiar.",
+      "Perch reúne lugar, preferencias y una lectura más clara del encaje para ayudar a las personas a reducir opciones con confianza.",
     seeProduct: "Ver producto",
     viewFlow: "Ver flujo",
     heroBadge: "P E R C H edit",
@@ -168,53 +168,53 @@ const translations = {
       ["Presupuesto", "Dentro del rango"],
       ["Ruido", "Calle silenciosa"],
     ],
-    tradeoffLabel: "Nota de equilibrio",
+    tradeoffLabel: "Qué conviene saber",
     tradeoffText:
-      "Marina moderna de 2 habitaciones. Muy buena para el día a día, aunque algo ajustada para el precio.",
-    shortlistConfidence: "Confianza de shortlist",
+      "Un 2 habitaciones en Marina con una vida diaria muy cómoda, aunque un poco ajustado para el precio.",
+    shortlistConfidence: "Shortlist",
     shortlistTitle: "Tres opciones viables. Una líder clara.",
     shortlistBadge: "Mejor balance",
     compare: "Comparar",
-    whatPerchDoes: "Lo que Perch realmente hace",
+    whatPerchDoes: "Cómo ayuda Perch",
     approachTitle:
-      "El producto le da forma a la búsqueda de vivienda y vuelve legibles los tradeoffs.",
-    productTruth: "Verdad del producto",
-    inPractice: "En la práctica",
+      "Perch aporta calma, contexto y más seguridad al momento de elegir dónde vivir.",
+    productTruth: "Cómo funciona",
+    inPractice: "Qué significa esto",
     storyBlocks: [
       {
         title: "Explora con estructura",
-        body: "Perch empieza con lógica de zona, señales de perfil y una secuencia más clara dentro del inventario. La experiencia se siente amplia sin volverse ruidosa.",
+        body: "Perch empieza por la zona, el estilo de vida y una ruta más clara dentro del inventario, para que la búsqueda se sienta amplia sin volverse abrumadora.",
         detail:
-          "Las personas se orientan por barrio, traslado y contexto de vida diaria antes de dedicar atención al brillo de cada anuncio.",
-        metric: "Descubrimiento guiado por zona",
+          "La persona se ubica por barrio, trayecto y rutina diaria antes de dejarse llevar por la apariencia de cada anuncio.",
+        metric: "Búsqueda guiada por zona",
       },
       {
-        title: "Entiende los tradeoffs al instante",
-        body: "Cada propiedad llega con una imagen fuerte, señales de lectura rápida y una línea editorial sobre el costo real de elegirla. No se trata de más datos. Se trata de claridad más rápida.",
+        title: "Entiende el encaje más rápido",
+        body: "Cada propiedad llega con una imagen fuerte, señales rápidas y una frase sencilla que ayuda a entender dónde se siente bien y dónde pide ceder.",
         detail:
-          "Perch vuelve legible el compromiso desde el principio: algo justa para el precio, más tranquila pero más lejos, pulida pero con menos carácter.",
+          "En lugar de obligar a interpretar detalles sin fin, Perch deja ver desde temprano el tipo de decisión: más tranquila pero más lejos, más pulida pero con menos carácter, más amplia pero menos central.",
         metric: "Señales de lectura rápida",
       },
       {
         title: "Construye una shortlist en la que puedas confiar",
-        body: "Guardar una vivienda deja de ser una pila y se convierte en una superficie de decisión. Perch reduce a unas pocas opciones serias y explica qué las separa.",
+        body: "Guardar una vivienda deja de ser una acumulación y se convierte en una shortlist útil. Perch reduce el campo y hace más fácil entender qué separa a las buenas opciones.",
         detail:
-          "La shortlist compara certeza, valor, sensación y fricción para que la persona deje de navegar y avance sin dudar.",
-        metric: "Shortlist lista para decidir",
+          "Al comparar valor, comodidad, ubicación y encaje diario, la shortlist ayuda a avanzar sin volver a empezar cada vez.",
+        metric: "Una shortlist con claridad",
       },
     ],
-    walkthroughEyebrow: "Recorrido del producto",
-    walkthroughTitle: "Un recorrido de decisión pensado para sentirse legible.",
+    walkthroughEyebrow: "La experiencia Perch",
+    walkthroughTitle: "Una búsqueda que se siente más serena desde el principio.",
     walkthroughBody:
-      "Perch va del lugar al perfil y luego a la validación, manteniendo al usuario cerca de un conjunto pequeño de opciones fuertes durante todo el recorrido.",
+      "Perch va del lugar a las preferencias y después a la validación, manteniendo a la persona cerca de un grupo pequeño de viviendas prometedoras durante todo el recorrido.",
     stepLabel: "Paso",
-    editorialView: "Vista editorial",
-    productFlow: "Flujo de producto",
+    editorialView: "Vista destacada",
+    productFlow: "Flujo Perch",
     flow: [
       {
         step: "01",
         title: "Conciencia del mapa",
-        body: "Empieza por el lugar antes que por el brillo. El contexto del área enmarca cada decisión que sigue.",
+        body: "Empieza por el lugar antes que por el brillo. El contexto del área marca el tono de cada elección.",
       },
       {
         step: "02",
@@ -224,7 +224,7 @@ const translations = {
       {
         step: "03",
         title: "Descubrimiento tipo revista",
-        body: "Cada vivienda llega con imagen, señales y una línea clara sobre el tradeoff.",
+        body: "Cada vivienda llega con imágenes, señales y una lectura clara del encaje.",
       },
       {
         step: "04",
@@ -237,36 +237,36 @@ const translations = {
         body: "Solo quedan unas pocas opciones viables, con suficiente estructura para decidir con confianza.",
       },
     ],
-    decisionEyebrow: "Soporte de decisión",
-    decisionTitle: "La shortlist es donde debería llegar la convicción.",
+    decisionEyebrow: "Comparar con más seguridad",
+    decisionTitle: "La shortlist es donde una decisión debería empezar a sentirse clara.",
     decisionBody:
-      "Perch reduce la decisión final a unas pocas viviendas viables y luego aclara qué las separa: certeza, valor, imagen, comodidad y encaje diario.",
+      "Perch reduce la búsqueda a unas pocas viviendas viables y después ayuda a entender qué las separa de verdad: comodidad, valor, ubicación y encaje en el día a día.",
     stats: [
       ["Traslado", "14 min"],
       ["Silencio", "Alto"],
       ["Confianza", "Fuerte"],
     ],
     currentLeader: "Opción líder",
-    leaderBody: "El balance más limpio entre traslado, acabados y calma general.",
-    closingTitle: "Hecho para personas que necesitan elegir bien, no seguir navegando.",
+    leaderBody: "La opción más equilibrada entre trayecto, acabados y sensación de calma.",
+    closingTitle: "Para quienes quieren sentirse bien con el lugar que eligen.",
     closingBody:
-      "Acceso anticipado para arrendatarios, operadores y partners que buscan un camino más sereno desde la búsqueda hasta la shortlist.",
+      "Acceso anticipado para arrendatarios, operadores y partners que buscan una manera más considerada de pasar de la búsqueda a una shortlist.",
     joinEarlyAccess: "Unirse al acceso anticipado",
     readApproach: "Leer el enfoque",
     shortlist: [
       {
         name: "5242 Tower 1",
-        line: "El encaje más limpio entre traslado, calma y acabados.",
+        line: "La opción más completa en trayecto, calma y acabados.",
         verdict: "Mejor balance",
       },
       {
         name: "Marina Gate View",
-        line: "Más certeza, menos carácter, la mejor alternativa segura.",
+        line: "Una opción más estable, con menos carácter, pero más certeza.",
         verdict: "Opción más segura",
       },
       {
         name: "Parkside Residence",
-        line: "Más espacio por el dinero, pero más fricción diaria.",
+        line: "Más espacio por el dinero, con algo más de fricción diaria.",
         verdict: "Mejor valor",
       },
     ],
@@ -288,7 +288,13 @@ function detectLocale(): Locale {
     return "en";
   }
 
-  return navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+  const primaryLanguage = navigator.language?.toLowerCase() ?? "en";
+
+  if (primaryLanguage.startsWith("es")) {
+    return "es";
+  }
+
+  return "en";
 }
 
 function Eyebrow({ children }: { children: string }) {
@@ -320,9 +326,9 @@ function Signal({ label, value }: { label: string; value: string }) {
 
 function HeroVisual({ copy }: { copy: Copy }) {
   return (
-    <div className="relative min-h-[640px] lg:min-h-[720px]">
+    <div className="relative">
       <div
-        className="absolute inset-x-0 top-10 h-[520px] overflow-hidden rounded-[36px] sm:top-0 sm:h-[560px] lg:left-10 lg:right-0 lg:h-[680px]"
+        className="relative h-[420px] overflow-hidden rounded-[36px] sm:h-[520px] lg:ml-10 lg:h-[680px]"
         style={{
           backgroundColor: palette.paper,
           boxShadow: "0 35px 100px rgba(18,18,18,0.08)",
@@ -358,7 +364,7 @@ function HeroVisual({ copy }: { copy: Copy }) {
           </div>
         </div>
 
-        <div className="absolute right-6 top-20 max-w-[320px] sm:right-8 sm:top-24">
+        <div className="absolute left-6 right-6 top-20 sm:left-auto sm:right-8 sm:top-24 sm:max-w-[320px]">
           <div
             className="rounded-[24px] px-5 py-4"
             style={{
@@ -384,7 +390,7 @@ function HeroVisual({ copy }: { copy: Copy }) {
       </div>
 
       <div
-        className="absolute -bottom-2 left-0 w-[88%] rounded-[30px] p-5 sm:w-[68%] sm:p-6"
+        className="relative mt-4 rounded-[30px] p-5 sm:p-6 lg:-mt-24 lg:w-[68%]"
         style={{
           backgroundColor: "rgba(252,250,247,0.92)",
           backdropFilter: "blur(18px)",
