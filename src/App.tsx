@@ -30,6 +30,9 @@ const translations = {
   en: {
     nav: ["Approach", "Product", "Flow", "Shortlist"],
     requestAccess: "Request access",
+    metaTitle: "Perch | Editorial Decision Engine for Housing",
+    metaDescription:
+      "Perch is an editorial decision engine for housing that helps people explore with structure, understand tradeoffs instantly, and build a shortlist they can trust.",
     heroEyebrow: "Editorial decision engine for housing",
     heroTitle: "Choose where you live with structure, not noise.",
     heroBody:
@@ -149,6 +152,9 @@ const translations = {
   es: {
     nav: ["Enfoque", "Producto", "Flujo", "Shortlist"],
     requestAccess: "Solicitar acceso",
+    metaTitle: "Perch | Motor editorial de decisión para vivienda",
+    metaDescription:
+      "Perch es un motor editorial de decisión para vivienda que ayuda a explorar con estructura, entender los tradeoffs al instante y construir una shortlist confiable.",
     heroEyebrow: "Motor editorial de decisión para vivienda",
     heroTitle: "Elige dónde vivir con estructura, no con ruido.",
     heroBody:
@@ -736,6 +742,40 @@ export default function App() {
   }, []);
 
   const copy = translations[locale];
+
+  useEffect(() => {
+    document.title = copy.metaTitle;
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute("content", copy.metaDescription);
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute("content", copy.metaTitle);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute("content", copy.metaDescription);
+    }
+
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute("content", copy.metaTitle);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute("content", copy.metaDescription);
+    }
+
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) {
+      ogLocale.setAttribute("content", locale === "es" ? "es_ES" : "en_US");
+    }
+  }, [copy, locale]);
 
   return (
     <div
